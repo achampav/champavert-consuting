@@ -1,0 +1,14 @@
+[Unit]
+Description=Oracle DB Startup-Shutdown
+After=syslog.target network.target
+
+[Service]
+RemainAfterExit=yes
+User=oracle
+Group=oinstall
+Restart=no
+ExecStart=/app/oracle/ora122/bin/dbstart /app/oracle/ora122
+ExecStop=/app/oracle/ora122/bin/dbshut /app/oracle/ora122
+
+[Install]
+WantedBy=multi-user.target
